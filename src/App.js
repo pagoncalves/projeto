@@ -1,11 +1,19 @@
 import React from "react";
 import './App.css';
 
+class App extends React.Component {
+  constructor(props){
+    super(props)
+    this.state = {
+      a00:""
+    }
+  }
 
+render() {
 
-function App() {
   return (
     <div className="App">
+      
       <div id="Quadrado">
         <div className="Qdentro">
           <div id="0.0" className="qq">
@@ -67,5 +75,5 @@ function App() {
     </div>
   );
 }
-
+}
 export default App;
