@@ -5,7 +5,8 @@ class App extends React.Component {
   constructor(props){
     super(props)
     this.state = {
-      a00:""
+      a00:"",
+     quadrados :[ ["branco","vermelho","verde","azul"],["vermelho","verde","azul","branco"],["verde","azul","branco","vermelho"],["azul","branco","vermelho","verde"]]
     }
   }
 
