@@ -1,24 +1,36 @@
 import React from "react";
 import './App.css';
 
+
 class App extends React.Component {
   constructor(props){
     super(props)
     this.cores=["blue","red","yellow","purple","orange","green","lightgrey","grey","darkgrey","black"]
-
+    //estado inicial
     this.state = {
      quadrados :[ [0,1,2,3],[4,5,6,7],[8,9,0,1],[2,3,4,5]]
+
     }
   }
 
-  handleTeclado = () => { 
-/**/
+  handleTeclado = (event) => { 
+   
+    if (event.onKeyPress === "keyDown"){
+      this.setState((state) => ({ 
+     quadrados: [ [0,9,0,9],[1,1,1,1],[2,2,2,2],[3,3,3,3]]
+      }))
+  } else if (event.onKeyPress ==="keyUp"){
+    this.setState((state) => ({ 
+      quadrados: [ [1,1,1,1],[0,0,0,0],[2,2,2,2],[0,1,2,0]]
+      }))
   }
+
+}
 
 render() {
 
   return (
-    <div className="App" onKeyPress={this.handleTeclado} >
+    <div className="App" onKeyPress={this.handleTeclado} tabIndex="0" >
       
       <div id="Quadrado">
         <div className="Qdentro">
@@ -84,3 +96,4 @@ render() {
 }
 }
 export default App;
+
