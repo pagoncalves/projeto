@@ -16,12 +16,15 @@ class App extends React.Component {
 
 
   handleTeclado = (event) => {
+    if (event.code !== "ArrowLeft" && event.code !== "ArrowRight" &&
+     event.code !== "ArrowUp" && event.code !== "ArrowDown")
+    return
     this.setState((state) => {
       var quadrados_novos = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
       for (var i = 0; i < 4; i++) {
         var k = 0
-        for (var j = 0; j < 4; i++) {
+        for (var j = 0; j < 4; j++) {
           if (event.code === "ArrowLeft") {
             var linha_atual = i
             var linha_nova = i
@@ -46,10 +49,11 @@ class App extends React.Component {
             coluna_atual = i
             coluna_nova = i
           }
-          var cor_atual = 0 //state.quadrados[linha_atual][coluna_atual]
+
+          var cor_atual = state.quadrados[linha_atual][coluna_atual]
           var cor_nova = quadrados_novos[linha_nova][coluna_nova]
-          if (cor_nova > 0) {
-            var cor_soma = cor_atual
+          var cor_soma = cor_atual
+          if (cor_nova > 0) {            
             quadrados_novos[linha_nova][coluna_nova] = cor_soma
             k++
           }
