@@ -1,61 +1,87 @@
 import React from "react";
 import './App.css';
 
+function grupos(cor1, cor2) {
+  var tipo = [0, 1, 1, 2, 1, 2, 2, 3, 4]
+  if (tipo[cor1] === tipo[cor2] && cor1 !== cor2) {
+    return cor1 | cor2
+  } 
+  else {
+    return 0
+  }
+}
+
+function tabuleiro(i, j, tecla) {
+  var linha
+  var coluna
+  if (tecla === "ArrowLeft") {
+    linha = i
+    coluna = j
+
+  }
+  if (tecla === "ArrowRight") {
+    linha = i
+    coluna = 3 - j
+
+  }
+  if (tecla === "ArrowUp") {
+    linha = j
+    coluna = i
+  }
+  if (tecla === "ArrowDown") {
+    linha = 3 - j
+    coluna = i
+  }
+  return [linha, coluna]
+}
 
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.cores = ["blue", "red", "yellow", "purple", "orange", "green", "lightgrey", "grey", "darkgrey", "black"]
+    this.cores = ["white", "blue", "red", "purple", "yellow", "green", "orange" , "darkgrey", "black"]
     //estado inicial
     this.state = {
-      quadrados: [[0, 1, 2, 3], [4, 5, 6, 7], [8, 9, 0, 1], [2, 3, 4, 5]]
+      quadrados: [[0, 1, 2, 3], [4, 5, 6, 7], [8, 0, 0, 1], [2, 3, 4, 5]]
 
     }
   }
 
 
 
+
   handleTeclado = (event) => {
     if (event.code !== "ArrowLeft" && event.code !== "ArrowRight" &&
-     event.code !== "ArrowUp" && event.code !== "ArrowDown")
-    return
+      event.code !== "ArrowUp" && event.code !== "ArrowDown")
+      return
     this.setState((state) => {
       var quadrados_novos = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
       for (var i = 0; i < 4; i++) {
         var k = 0
         for (var j = 0; j < 4; j++) {
-          if (event.code === "ArrowLeft") {
-            var linha_atual = i
-            var linha_nova = i
-            var coluna_atual = j
-            var coluna_nova = k
-          }
-          if (event.code === "ArrowRight") {
-            linha_atual = i
-            linha_nova = i
-            coluna_atual = 3 - j
-            coluna_nova = 3 - k
-          }
-          if (event.code === "ArrowUp") {
-            linha_atual = j
-            linha_nova = k
-            coluna_atual = i
-            coluna_nova = i
-          }
-          if (event.code === "ArrowDown") {
-            linha_atual = 3 - j
-            linha_nova = 3 - k
-            coluna_atual = i
-            coluna_nova = i
-          }
+          var linha_atual, coluna_atual, coluna_nova, linha_nova
+          [linha_atual, coluna_atual] = tabuleiro(i, j, event.code);
+          [linha_nova, coluna_nova] = tabuleiro(i, k, event.code)
 
           var cor_atual = state.quadrados[linha_atual][coluna_atual]
           var cor_nova = quadrados_novos[linha_nova][coluna_nova]
-          var cor_soma = cor_atual
-          if (cor_nova > 0) {            
+          if (cor_atual > 0) {
+            var cor_soma
+            if (cor_nova === 0) {
+              cor_soma = cor_atual
+            } else {
+              k++
+              cor_soma = grupos(cor_atual, cor_nova);
+              if (cor_soma === 0){
+                cor_soma=cor_atual;
+                [linha_nova, coluna_nova] = tabuleiro(i, k, event.code)
+
+              }
+
+            }
+
             quadrados_novos[linha_nova][coluna_nova] = cor_soma
-            k++
+
           }
         }
       }
@@ -64,78 +90,79 @@ class App extends React.Component {
 
 
   }
-   
 
 
 
 
-  
 
-render() {
 
-  return (
-    <div className="App" onKeyDown={this.handleTeclado} tabIndex="0" >
 
-      <div id="Quadrado">
-        <div className="Qdentro">
-          <div id="0.0" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[0][0]] }}>
-            0.0
+  render() {
+
+    return (
+      <div className="App" onKeyDown={this.handleTeclado} tabIndex="0" >
+
+        <div id="Quadrado">
+          <div className="Qdentro">
+            <div id="0.0" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[0][0]] }}>
+              {this.state.quadrados[0][0]}
           </div>
-          <div id="1.0" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[1][0]] }}>
-            1.0
+            <div id="1.0" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[1][0]] }}>
+            {this.state.quadrados[1][0]}
           </div>
-          <div id="2.0" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[2][0]] }}>
-            2.0
+            <div id="2.0" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[2][0]] }}>
+            {this.state.quadrados[2][0]}
+
           </div>
-          <div id="3.0" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[3][0]] }}>
-            3.0
+            <div id="3.0" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[3][0]] }}>
+            {this.state.quadrados[3][0]}
           </div>
-        </div>
-        <div className="Qdentro">
-          <div id="0.1" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[0][1]] }}>
-            0.1
           </div>
-          <div id="1.1" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[1][1]] }}>
-            1.1
+          <div className="Qdentro">
+            <div id="0.1" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[0][1]] }}>
+            {this.state.quadrados[0][1]}
           </div>
-          <div id="2.1" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[2][1]] }}>
-            2.1
+            <div id="1.1" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[1][1]] }}>
+            {this.state.quadrados[1][1]}
           </div>
-          <div id="3.1" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[3][1]] }}>
-            3.1
+            <div id="2.1" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[2][1]] }}>
+            {this.state.quadrados[2][1]}
           </div>
-        </div>
-        <div className="Qdentro">
-          < div id="0.2" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[0][2]] }}>
-            0.2
+            <div id="3.1" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[3][1]] }}>
+            {this.state.quadrados[3][1]}
+          </div>
+          </div>
+          <div className="Qdentro">
+            < div id="0.2" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[0][2]] }}>
+            {this.state.quadrados[0][2]}
           </ div>
-          <div id="1.2" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[1][2]] }}>
-            1.2
+            <div id="1.2" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[1][2]] }}>
+            {this.state.quadrados[1][2]}
           </div>
-          <div id="2.2" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[2][2]] }}>
-            2.2
+            <div id="2.2" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[2][2]] }}>
+            {this.state.quadrados[2][2]}
           </div>
-          <div id="3.2" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[3][2]] }}>
-            3.2
+            <div id="3.2" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[3][2]] }}>
+            {this.state.quadrados[3][2]}
           </div>
-        </div>
-        <div className="Qdentro">
-          <div id="0.3" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[0][3]] }}>
-            0.3
           </div>
-          <div id="1.3" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[1][3]] }}>
-            1.3
+          <div className="Qdentro">
+            <div id="0.3" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[0][3]] }}>
+            {this.state.quadrados[0][3]}
           </div>
-          <div id="2.3" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[2][3]] }}>
-            2.3
+            <div id="1.3" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[1][3]] }}>
+            {this.state.quadrados[1][3]}
           </div>
-          <div id="3.3" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[3][3]] }}>
-            3.3
+            <div id="2.3" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[2][3]] }}>
+            {this.state.quadrados[2][3]}
+          </div>
+            <div id="3.3" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[3][3]] }}>
+            {this.state.quadrados[3][3]}
+          </div>
           </div>
         </div>
       </div>
-    </div>
-  );
-}
+    );
+  }
 }
 export default App;
