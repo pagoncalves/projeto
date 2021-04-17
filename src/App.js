@@ -13,6 +13,8 @@ function soma_Cores(cor1, cor2) {
     return 8
   } else if (cor1 === 8 && cor2 === 8){
     return 9
+  } else {
+    return 0
   }
 }
 
