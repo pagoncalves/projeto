@@ -176,3 +176,4 @@ class App extends React.Component {
   }
 }
 export default App;
+//incluir um botão de reiniciar
