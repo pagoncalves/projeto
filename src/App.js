@@ -13,7 +13,10 @@ function soma_Cores(cor1, cor2) {
     return 8
   } else if (cor1 === 8 && cor2 === 8){
     return 9
-  } else {
+  }else if (cor1 === 9 && cor2 === 9){
+    return 9
+  } 
+  else {
     return 0
   }
 }
@@ -48,8 +51,8 @@ class App extends React.Component {
     this.cores = ["white", "blue", "red", "purple", "yellow", "green", "orange", "lightgrey", "grey", "black"]
     //estado inicial
     this.state = {
-      quadrados: [[0, 1, 2, 3], [4, 5, 6, 7], [8, 0, 0, 1], [2, 3, 4, 5]]
-
+      quadrados: [[3, 1, 2, 3], [4, 5, 6, 7], [8, 2, 4, 1], [2, 3, 4, 5]]
+     // quadrados: [[0, 0, 0, 0], [7, 7, 0, 0], [0, 0, 0, 8], [0, 0, 0, 0]]
     }
   }
 
