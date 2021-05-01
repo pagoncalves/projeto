@@ -64,15 +64,23 @@ this.setState((state) => {
 
 }
 
-handleTeclado = (direcao) => {
-  const dirs = {CIMA:0, BAIXO:1, DIREITA:2, ESQUERDA:3}
-  if (direcao.code !== dirs.ESQUERDA && direcao.code !== dirs.DIREITA &&
-  direcao.code !== dirs.CIMA && direcao.code !== dirs.BAIXO)
-  return
 
+handleTeclado = (event) => {
+  const dirs = {CIMA:0, BAIXO:1, DIREITA:2, ESQUERDA:3}
+  switch (event.code) {
+    case "ArrowDown":
+        atualizaTabuleiro(dirs.BAIXO)
+    case "ArrowUp":
+      atualizaTabuleiro(dirs.CIMA)
+     case "ArrowLeft":
+       atualizaTabuleiro(dirs.ESQUERDA)
+      case "ArrowRight":
+        atualizaTabuleiro(dirs.DIREITA)  
+  }    
+  return
 }
 
-   handleTeclas = (event) => {
+atualizaTabuleiro = (direcao) => {
         
     this.setState((state) => {
       var quadrados_novos = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
@@ -120,7 +128,7 @@ handleTeclado = (direcao) => {
     
     return (
      
-      <div className="App" onKeyDown={this.handleTeclas tabIndex="0" >
+      <div className="App" onKeyDown={this.handleTeclado} tabIndex="0" >
 
         <div id="Quadrado">
           <div className="Qdentro">
@@ -184,8 +192,10 @@ handleTeclado = (direcao) => {
         <button onClick={this.handleBnt} id='btn'>Reiniciar </button>
       </div>//fim div app 
      );
+    }
   }
-  }
+}
+
 
 export default App;
 //incluir um botão de reiniciar
