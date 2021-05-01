@@ -21,24 +21,24 @@ function soma_Cores(cor1, cor2) {
   }
 }
 
-function tabuleiro(i, j, tecla) {
+function tabuleiro(i, j, direcao) {
   var linha
   var coluna
-  if (tecla === "ArrowLeft") {
+  if (direcao === "ArrowLeft") {
     linha = i
     coluna = j
 
   }
-  if (tecla === "ArrowRight") {
+  if (direcao === "ArrowRight") {
     linha = i
     coluna = 3 - j
 
   }
-  if (tecla === "ArrowUp") {
+  if (direcao === "ArrowUp") {
     linha = j
     coluna = i
   }
-  if (tecla === "ArrowDown") {
+  if (direcao === "ArrowDown") {
     linha = 3 - j
     coluna = i
   }
@@ -64,12 +64,16 @@ this.setState((state) => {
 
 }
 
+handleTeclado = (direcao) => {
+  const dirs = {CIMA:0, BAIXO:1, DIREITA:2, ESQUERDA:3}
+  if (direcao.code !== dirs.ESQUERDA && direcao.code !== dirs.DIREITA &&
+  direcao.code !== dirs.CIMA && direcao.code !== dirs.BAIXO)
+  return
 
-   handleTeclado = (event) => {
-     
-    if (event.code !== "ArrowLeft" && event.code !== "ArrowRight" &&
-      event.code !== "ArrowUp" && event.code !== "ArrowDown")
-      return
+}
+
+   handleTeclas = (event) => {
+        
     this.setState((state) => {
       var quadrados_novos = [[0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0], [0, 0, 0, 0]]
 
@@ -116,7 +120,7 @@ this.setState((state) => {
     
     return (
      
-      <div className="App" onKeyDown={this.handleTeclado} tabIndex="0" >
+      <div className="App" onKeyDown={this.handleTeclas tabIndex="0" >
 
         <div id="Quadrado">
           <div className="Qdentro">
@@ -181,7 +185,8 @@ this.setState((state) => {
       </div>//fim div app 
      );
   }
-}
+  }
+
 export default App;
 //incluir um botão de reiniciar
 //iniciar o jogo sem precisar clicar 
