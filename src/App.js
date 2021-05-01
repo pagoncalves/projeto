@@ -56,10 +56,17 @@ class App extends React.Component {
     }
   }
 
+handleBnt = (event) => {
+this.setState((state) => {
+  var quadrados = [[3, 1, 2, 3], [4, 5, 6, 7], [8, 2, 4, 1], [2, 3, 4, 5]]
+  return {quadrados}
+})
+
+}
 
 
-
-  handleTeclado = (event) => {
+   handleTeclado = (event) => {
+     
     if (event.code !== "ArrowLeft" && event.code !== "ArrowRight" &&
       event.code !== "ArrowUp" && event.code !== "ArrowDown")
       return
@@ -98,18 +105,17 @@ class App extends React.Component {
       return { quadrados: quadrados_novos }
     })
 
-
+  
   }
 
-
-
-
-
-
+  componentDidMount() {
+    document.querySelector(".App").focus()
+  }
 
   render() {
-
+    
     return (
+     
       <div className="App" onKeyDown={this.handleTeclado} tabIndex="0" >
 
         <div id="Quadrado">
@@ -170,10 +176,15 @@ class App extends React.Component {
               {this.state.quadrados[3][3]}
             </div>
           </div>
-        </div>
-      </div>
-    );
+        </div> 
+        <button onClick={this.handleBnt} id='btn'>Reiniciar </button>
+      </div>//fim div app 
+     );
   }
 }
 export default App;
 //incluir um botão de reiniciar
+//iniciar o jogo sem precisar clicar 
+//instruções 
+//incluir níveis
+//gerar inicio aleatório para niveis de dificuldade
