@@ -1,5 +1,12 @@
 import React from "react";
 import './App.css';
+import IconButton from '@material-ui/core/IconButton';
+import { makeStyles } from '@material-ui/core/styles';
+import ArrowBackIcon from '@material-ui/icons/ArrowBack';
+import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
+import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+
 //qndo há duas cores e quer somar, cor1 com cor2
 function soma_Cores(cor1, cor2) {
   var tipo = [0, 1, 1, 2, 1, 2, 2]//criada para 
@@ -89,27 +96,6 @@ class App extends React.Component {
   }//fim handleTeclado
 
 
-  handleCtr = (event) => {
-
-    switch (event.target.value) {
-      case "baixo":
-        this.atualizaTabuleiro(dirs.BAIXO)
-        break
-      case "cima":
-        this.atualizaTabuleiro(dirs.CIMA)
-        break
-      case "esquerda":
-        this.atualizaTabuleiro(dirs.ESQUERDA)
-        break
-      case "direita":
-        this.atualizaTabuleiro(dirs.DIREITA)
-        break
-      default:
-        break
-    }
-    return
-  }//fim handleCtr
-
   atualizaTabuleiro = (direcao) => {
 
     this.setState((state) => {
@@ -157,7 +143,8 @@ class App extends React.Component {
   }//para página carregar
 
   render() {
-
+   
+   
     return (
 
       <div className="App" onKeyDown={this.handleTeclado} tabIndex="0">
@@ -221,10 +208,10 @@ class App extends React.Component {
             </div>
           </div>
           <section id="ctr">
-            <button onClick={this.handleCtr} value="esquerda" id="btnE" > Esquerda </button>
-            <button onClick={this.handleCtr} value="direita" id="btnD"> Direita </button>
-            <button onClick={this.handleCtr} value="cima" id="btnC"> Cima </button>
-            <button onClick={this.handleCtr} value="baixo" id="btnB"> Baixo </button>
+            <IconButton onClick={() => this.atualizaTabuleiro(dirs.ESQUERDA)} color="primary" >   <ArrowBackIcon/></IconButton>
+            <IconButton onClick={() => this.atualizaTabuleiro(dirs.DIREITA)}>  <ArrowForwardIcon/></IconButton>
+            <IconButton onClick={() => this.atualizaTabuleiro(dirs.CIMA)}>  <ArrowUpwardIcon/></IconButton>
+            <IconButton onClick={() => this.atualizaTabuleiro(dirs.BAIXO)}>  <ArrowDownwardIcon/></IconButton>
           </section>
         </div>
         <div>
@@ -238,7 +225,7 @@ class App extends React.Component {
             <p>Cores Primárias: Vermelho, Azul e Amarelo podem se juntar para obter cores secundárias;</p>
               <p> Cores Secundárias: Roxo, Verde e Laranja também podem ser juntadas para obter cinza claro;</p>
               <p>Cinza claro: Junte 2 cinza claros para obter o cinza escuro; </p>
-              <p>Cinza escuro: Junto 2 cinza escuros para obter o preto; </p>
+              <p>size="medium" variant="outlined"Cinza escuro: Junto 2 cinza escuros para obter o preto; </p>
               <p>Preto: Junte os pretos para finalizar o jogo. </p>
             </p>
 
