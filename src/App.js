@@ -67,6 +67,28 @@ class App extends React.Component {
 
   }
 
+  handleTeclado = (event) => {
+    
+    switch (event.code) {
+      case "ArrowDown":
+        this.atualizaTabuleiro(dirs.BAIXO)
+        break
+      case "ArrowUp":
+        this.atualizaTabuleiro(dirs.CIMA)
+        break
+      case "ArrowLeft":
+        this.atualizaTabuleiro(dirs.ESQUERDA)
+        break
+      case "ArrowRight":
+        this.atualizaTabuleiro(dirs.DIREITA)
+        break
+        default:
+          break 
+    }
+    return
+  }//fim handleTeclado
+
+
   handleCtr = (event) => {
 
     switch (event.target.value) {
@@ -86,7 +108,7 @@ class App extends React.Component {
         break
     }
     return
-  }//fim handleTeclado
+  }//fim handleCtr
 
   atualizaTabuleiro = (direcao) => {
 
@@ -138,7 +160,7 @@ class App extends React.Component {
 
     return (
 
-      <div className="App" >
+      <div className="App" onKeyDown={this.handleTeclado} tabIndex="0">
 
         <div id="Quadrado">
           <div className="Qdentro">
