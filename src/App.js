@@ -198,34 +198,34 @@ class App extends React.Component {
               {this.state.quadrados[3][3]}
             </div>
           </div>
-          <div id="ctr">
-            <button onClick={this.handleCtr} value="esquerda"> Esquerda </button>
-            <button onClick={this.handleCtr} value="direita"> Direita </button>
-            <button onClick={this.handleCtr} value="cima"> Cima </button>
-            <button onClick={this.handleCtr} value="baixo"> Baixo </button>
-          </div>
+          <section id="ctr">
+            <button onClick={this.handleCtr} value="esquerda" id="btnE" > Esquerda </button>
+            <button onClick={this.handleCtr} value="direita" id="btnD"> Direita </button>
+            <button onClick={this.handleCtr} value="cima" id="btnC"> Cima </button>
+            <button onClick={this.handleCtr} value="baixo" id="btnB"> Baixo </button>
+          </section>
         </div>
+        <div>
+          <section>
+            <p>Bem vindo!</p>
 
-        <section>
-          <p>Bem vindo!</p>
-
-          <p>Oiii, muito bom te ver por aqui. </p>
-          <p>Tem regrinha hein! </p>
-          <p>
-            É bem facil de entender como funciona
+            <p>Oiii, muito bom te ver por aqui. Este é o jogo "Resta uma cor".</p>
+            <p>Tem regrinha hein! </p>
+            <p>
+              Fica tranquilo(a) é bem fácil de entender:
             <p>Cores Primárias: Vermelho, Azul e Amarelo podem se juntar para obter cores secundárias;</p>
-            <p> Cores Secundárias: Roxo, Verde e Laranja também podem ser juntadas, para obter cinza claro;</p>
-            <p>Cinza claro: Junte 2 cinza claros para obter o cinza escuro; </p>
-            <p>Cinza escuro: Junto os 2 cinza escuros para obter o preto; </p>
-            <p>Preto: Junte os pretos para finalizar o jogo. </p>
-          </p>
+              <p> Cores Secundárias: Roxo, Verde e Laranja também podem ser juntadas para obter cinza claro;</p>
+              <p>Cinza claro: Junte 2 cinza claros para obter o cinza escuro; </p>
+              <p>Cinza escuro: Junto 2 cinza escuros para obter o preto; </p>
+              <p>Preto: Junte os pretos para finalizar o jogo. </p>
+            </p>
 
-          <p>Ah! Se liga na dica: </p>
-          <p> As únicas cores iguais que se juntam são cinza claro, cinza escuro e preto. </p>
+            <p>Ah! Se liga na dica: </p>
+            <p> As únicas cores iguais que se juntam são cinza claro, cinza escuro e preto. </p>
 
-        </section>
-        <button onClick={this.handleBnt} id='btn'>Reiniciar </button>
-
+          </section>
+          <button onClick={this.handleBnt} id='btn'>Reiniciar </button>
+        </div>
       </div>//fim div app 
 
     );

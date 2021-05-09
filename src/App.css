@@ -1,15 +1,15 @@
 .App {
   text-align: center;
+  display: flex;
 }
 
 #Quadrado{
   display: flex;
-  float: left;
   margin: 1%;
-  width:  40vmax;
-  height:  40vmax;
-  border: 10px solid black;
-  
+  width:  30vmax;
+  height:  30vmax;
+  border: 10px;
+    
 }
 
 .Qdentro{
@@ -23,20 +23,21 @@
   text-align: center;
   display: flow-root;
   border: 0.5px solid white;
-  border-radius: 10px;
+  border-radius: 5px;
   background-color: blueviolet;
-  width: 9.7vmax;
-  height: 9.7vmax;
+  width: 7.2vmax;
+  height: 7.2vmax;
 }
 
 #btn{
   border-radius: 50px;
   margin-top: 20px;
+ 
 
 }
 
 #ctr{
 margin-top: 400px;
-margin-left: 10%;
-
+padding: 10px;
+float: left;
 }
