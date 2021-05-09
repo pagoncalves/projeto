@@ -25,26 +25,26 @@ function tabuleiro(i, j, direcao) {
   var linha
   var coluna
   switch (direcao) {
-    case dirs.ESQUERDA :
+    case dirs.ESQUERDA:
       linha = i
-    coluna = j
+      coluna = j
       break;
-  case dirs.DIREITA:
-  linha = i
-  coluna = 3 - j
-    break;
-case dirs.CIMA:
-  linha = j
-  coluna = i
-  break;
-  case dirs.BAIXO:
-  linha = 3 - j
-  coluna = i
-  break;
+    case dirs.DIREITA:
+      linha = i
+      coluna = 3 - j
+      break;
+    case dirs.CIMA:
+      linha = j
+      coluna = i
+      break;
+    case dirs.BAIXO:
+      linha = 3 - j
+      coluna = i
+      break;
     default:
       break;
   }
- 
+
   return [linha, coluna]
 }//fim funcao tabuleiro
 
@@ -67,23 +67,23 @@ class App extends React.Component {
 
   }
 
-  handleTeclado = (event) => {
-    
-    switch (event.code) {
-      case "ArrowDown":
+  handleCtr = (event) => {
+
+    switch (event.target.value) {
+      case "baixo":
         this.atualizaTabuleiro(dirs.BAIXO)
         break
-      case "ArrowUp":
+      case "cima":
         this.atualizaTabuleiro(dirs.CIMA)
         break
-      case "ArrowLeft":
+      case "esquerda":
         this.atualizaTabuleiro(dirs.ESQUERDA)
         break
-      case "ArrowRight":
+      case "direita":
         this.atualizaTabuleiro(dirs.DIREITA)
         break
-        default:
-          break 
+      default:
+        break
     }
     return
   }//fim handleTeclado
@@ -128,17 +128,17 @@ class App extends React.Component {
 
   }//fim atualiza 
 
-  
+
 
   componentDidMount() {
     document.querySelector(".App").focus()
-  }
+  }//para página carregar
 
   render() {
 
     return (
 
-      <div className="App" onKeyDown={this.handleTeclado} tabIndex="0" >
+      <div className="App" >
 
         <div id="Quadrado">
           <div className="Qdentro">
@@ -198,17 +198,45 @@ class App extends React.Component {
               {this.state.quadrados[3][3]}
             </div>
           </div>
+          <div id="ctr">
+            <button onClick={this.handleCtr} value="esquerda"> Esquerda </button>
+            <button onClick={this.handleCtr} value="direita"> Direita </button>
+            <button onClick={this.handleCtr} value="cima"> Cima </button>
+            <button onClick={this.handleCtr} value="baixo"> Baixo </button>
+          </div>
         </div>
+
+        <section>
+          <p>Bem vindo!</p>
+
+          <p>Oiii, muito bom te ver por aqui. </p>
+          <p>Tem regrinha hein! </p>
+          <p>
+            É bem facil de entender como funciona
+            <p>Cores Primárias: Vermelho, Azul e Amarelo podem se juntar para obter cores secundárias;</p>
+            <p> Cores Secundárias: Roxo, Verde e Laranja também podem ser juntadas, para obter cinza claro;</p>
+            <p>Cinza claro: Junte 2 cinza claros para obter o cinza escuro; </p>
+            <p>Cinza escuro: Junto os 2 cinza escuros para obter o preto; </p>
+            <p>Preto: Junte os pretos para finalizar o jogo. </p>
+          </p>
+
+          <p>Ah! Se liga na dica: </p>
+          <p> As únicas cores iguais que se juntam são cinza claro, cinza escuro e preto. </p>
+
+        </section>
         <button onClick={this.handleBnt} id='btn'>Reiniciar </button>
+
       </div>//fim div app 
+
     );
   }
 }
 
 
 export default App;
-//incluir um botão de reiniciar
-//iniciar o jogo sem precisar clicar 
-//instruções 
+//incluir um botão de reiniciar - ok
+//iniciar o jogo sem precisar clicar - ok
+//instruções - ok
+//trocar teclado por botão
 //incluir níveis
 //gerar inicio aleatório para niveis de dificuldade

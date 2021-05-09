@@ -23,6 +23,7 @@
   text-align: center;
   display: flow-root;
   border: 0.5px solid white;
+  border-radius: 10px;
   background-color: blueviolet;
   width: 9.7vmax;
   height: 9.7vmax;
@@ -31,5 +32,11 @@
 #btn{
   border-radius: 50px;
   margin-top: 20px;
+
+}
+
+#ctr{
+margin-top: 400px;
+margin-left: 10%;
 
 }
