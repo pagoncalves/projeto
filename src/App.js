@@ -75,6 +75,14 @@ class App extends React.Component {
 
   }
 
+  handleNovoJogo = (event) => {
+    this.setState((state) => {
+      var quadrados = [[3, 1, 2, 3], [4, 5, 6, 7], [8, 2, 4, 1], [2, 3, 4, 5]]
+      return { quadrados }
+    })
+
+  }
+
   handleTeclado = (event) => {
 
     switch (event.code) {
@@ -186,6 +194,7 @@ class App extends React.Component {
             <IconButton onClick={() => this.atualizaTabuleiro(dirs.BAIXO)} color="primary" id="b">  <ArrowDownwardIcon fontSize="large" /></IconButton>
           </section>
           <Button onClick={this.handleBnt} id='btn' variant="contained">Reiniciar</Button>
+          <Button onClick={this.handleNovoJogo} id='btnNovo' variant="contained">Novo Jogo</Button>
         </div>
         <div>
 
