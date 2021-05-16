@@ -220,10 +220,7 @@ class App extends React.Component {
 
           <section>
             <p>Bem vindo!</p>
-
-            display: flex;
-  margin: 1%;
-  width:  
+  
             <p>Oiii, muito bom te ver por aqui. Este é o jogo "Resta uma cor".</p>
             <p>Tem regrinha hein! </p>
             <p>
