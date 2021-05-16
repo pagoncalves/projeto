@@ -143,41 +143,42 @@ class App extends React.Component {
     document.querySelector(".App").focus()
   }//para página carregar
 
-  renderQuadrado(i,j,numeros) {
+  renderQuadrado(i, j, numeros) {
 
     return (
-          <div className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[i][j]] }}>
-            {numeros && this.state.quadrados[i][j]}
-          </div>
+      <div className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[i][j]] }}>
+        {numeros && this.state.quadrados[i][j]}
+      </div>
     )
   }
 
-  renderLinha(j){
+  renderLinha(j, numeros) {
     var quadrados = []
-    for (var i =0 ;i< 4;i++){
-      quadrados.push(this.renderQuadrado(i,j,false))
+    for (var i = 0; i < 4; i++) {
+      quadrados.push(this.renderQuadrado(i, j, false))
     }
-    return(
-            <div className="Qdentro">
-            {quadrados}
-            </div>
+    return (
+      <div className="Qdentro">{quadrados} </div>
+    )
+  }
+
+  renderTabuleiro(numeros) {
+    var linhas = []
+    for (var j = 0; j < 4; j++) {
+      linhas.push(this.renderLinha(j, numeros))
+
+    } return (
+      <div id="Quadrado">{linhas} </div>
     )
   }
 
   render() {
-    var  linhas = []
-    for (var j=0;j<4;j++){
-      linhas.push(this.renderLinha(j))
-    }
 
     return (
 
       <div className="App" onKeyDown={this.handleTeclado} tabIndex="0">
         <div id="Ajuste">
-          <div id="Quadrado">
-         {linhas}           
-           
-          </div>
+          {this.renderTabuleiro(false)}
           <section id="ctr">
             <IconButton onClick={() => this.atualizaTabuleiro(dirs.CIMA)} color="primary" id="c">  <ArrowUpwardIcon fontSize="large" /></IconButton>
             <IconButton onClick={() => this.atualizaTabuleiro(dirs.ESQUERDA)} color="primary" id="e" >   <ArrowBackIcon fontSize="large" /></IconButton>
@@ -206,7 +207,7 @@ class App extends React.Component {
             <p> As únicas cores iguais que se juntam são cinza claro, cinza escuro e preto. </p>
 
           </section>
-         
+
         </div>
       </div>//fim div app 
 
