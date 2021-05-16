@@ -77,9 +77,9 @@ class App extends React.Component {
 
   handleNovoJogo = (event) => {
     var quadrados = [[3, 1, 2, 3], [4, 5, 6, 7], [8, 2, 4, 1], [2, 3, 4, 5]]
-    for (var i; i < 4 ; i++){
-      for (var j;j < 4 ; j++){
-       quadrados[i][j] = Math.floor(Math.random() * 9 )
+    for (var i = 0; i < 4 ; i++){
+      for (var j = 0;j < 4 ; j++){
+       quadrados[i][j] = Math.floor(Math.random() * 6 ) + 1
       }
     }
     this.setState((state) => {
@@ -199,8 +199,10 @@ class App extends React.Component {
             <IconButton onClick={() => this.atualizaTabuleiro(dirs.DIREITA)} color="primary" id="d">  <ArrowForwardIcon fontSize="large" /></IconButton>
             <IconButton onClick={() => this.atualizaTabuleiro(dirs.BAIXO)} color="primary" id="b">  <ArrowDownwardIcon fontSize="large" /></IconButton>
           </section>
-          <Button onClick={this.handleBnt} className='btn' variant="contained">Reiniciar</Button>
-          <Button onClick={this.handleNovoJogo} className='btn' variant="contained">Novo Jogo</Button>
+          <section className="btn"> 
+            <Button onClick={this.handleBnt}  variant="contained">Reiniciar</Button>
+            <Button onClick={this.handleNovoJogo}  variant="contained">Novo Jogo</Button>
+          </section>       
         </div>
         <div>
 
