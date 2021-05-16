@@ -9,7 +9,7 @@
   width:  30vmax;
   height:  30vmax;
   border: 10px;
-    
+  padding: 0px 20px 10px 10px;  
 }
 
 .Qdentro{
@@ -23,7 +23,7 @@
   text-align: center;
   display: flow-root;
   border: 0.5px solid white;
-  border-radius: 5px;
+  border-radius: 4px;
   background-color: blueviolet;
   width: 7.2vmax;
   height: 7.2vmax;
@@ -37,7 +37,14 @@
 }
 
 #ctr{
-margin-top: 400px;
-padding: 10px;
-float: left;
+max-width: 150px;
+max-height: 250px;
+margin-left: 10px;
+padding: 20px;
+border: solid black;
+}
+
+#c{
+
+display: flex;
 }

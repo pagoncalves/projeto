@@ -75,7 +75,7 @@ class App extends React.Component {
   }
 
   handleTeclado = (event) => {
-    
+
     switch (event.code) {
       case "ArrowDown":
         this.atualizaTabuleiro(dirs.BAIXO)
@@ -89,8 +89,8 @@ class App extends React.Component {
       case "ArrowRight":
         this.atualizaTabuleiro(dirs.DIREITA)
         break
-        default:
-          break 
+      default:
+        break
     }
     return
   }//fim handleTeclado
@@ -143,78 +143,81 @@ class App extends React.Component {
   }//para página carregar
 
   render() {
-   
-   
+
+
     return (
 
       <div className="App" onKeyDown={this.handleTeclado} tabIndex="0">
+        <div id="Ajuste">
+          <div id="Quadrado">
+            <div className="Qdentro">
+              <div id="0.0" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[0][0]] }}>
+                {this.state.quadrados[0][0]}
+              </div>
+              <div id="1.0" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[1][0]] }}>
+                {this.state.quadrados[1][0]}
+              </div>
+              <div id="2.0" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[2][0]] }}>
+                {this.state.quadrados[2][0]}
 
-        <div id="Quadrado">
-          <div className="Qdentro">
-            <div id="0.0" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[0][0]] }}>
-              {this.state.quadrados[0][0]}
+              </div>
+              <div id="3.0" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[3][0]] }}>
+                {this.state.quadrados[3][0]}
+              </div>
             </div>
-            <div id="1.0" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[1][0]] }}>
-              {this.state.quadrados[1][0]}
+            <div className="Qdentro">
+              <div id="0.1" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[0][1]] }}>
+                {this.state.quadrados[0][1]}
+              </div>
+              <div id="1.1" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[1][1]] }}>
+                {this.state.quadrados[1][1]}
+              </div>
+              <div id="2.1" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[2][1]] }}>
+                {this.state.quadrados[2][1]}
+              </div>
+              <div id="3.1" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[3][1]] }}>
+                {this.state.quadrados[3][1]}
+              </div>
             </div>
-            <div id="2.0" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[2][0]] }}>
-              {this.state.quadrados[2][0]}
+            <div className="Qdentro">
+              < div id="0.2" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[0][2]] }}>
+                {this.state.quadrados[0][2]}
+              </ div>
+              <div id="1.2" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[1][2]] }}>
+                {this.state.quadrados[1][2]}
+              </div>
+              <div id="2.2" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[2][2]] }}>
+                {this.state.quadrados[2][2]}
+              </div>
+              <div id="3.2" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[3][2]] }}>
+                {this.state.quadrados[3][2]}
+              </div>
+            </div>
+            <div className="Qdentro">
+              <div id="0.3" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[0][3]] }}>
+                {this.state.quadrados[0][3]}
+              </div>
+              <div id="1.3" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[1][3]] }}>
+                {this.state.quadrados[1][3]}
+              </div>
+              <div id="2.3" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[2][3]] }}>
+                {this.state.quadrados[2][3]}
+              </div>
+              <div id="3.3" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[3][3]] }}>
+                {this.state.quadrados[3][3]}
+              </div>
+            </div>
 
-            </div>
-            <div id="3.0" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[3][0]] }}>
-              {this.state.quadrados[3][0]}
-            </div>
-          </div>
-          <div className="Qdentro">
-            <div id="0.1" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[0][1]] }}>
-              {this.state.quadrados[0][1]}
-            </div>
-            <div id="1.1" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[1][1]] }}>
-              {this.state.quadrados[1][1]}
-            </div>
-            <div id="2.1" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[2][1]] }}>
-              {this.state.quadrados[2][1]}
-            </div>
-            <div id="3.1" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[3][1]] }}>
-              {this.state.quadrados[3][1]}
-            </div>
-          </div>
-          <div className="Qdentro">
-            < div id="0.2" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[0][2]] }}>
-              {this.state.quadrados[0][2]}
-            </ div>
-            <div id="1.2" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[1][2]] }}>
-              {this.state.quadrados[1][2]}
-            </div>
-            <div id="2.2" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[2][2]] }}>
-              {this.state.quadrados[2][2]}
-            </div>
-            <div id="3.2" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[3][2]] }}>
-              {this.state.quadrados[3][2]}
-            </div>
-          </div>
-          <div className="Qdentro">
-            <div id="0.3" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[0][3]] }}>
-              {this.state.quadrados[0][3]}
-            </div>
-            <div id="1.3" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[1][3]] }}>
-              {this.state.quadrados[1][3]}
-            </div>
-            <div id="2.3" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[2][3]] }}>
-              {this.state.quadrados[2][3]}
-            </div>
-            <div id="3.3" className="qq" style={{ backgroundColor: this.cores[this.state.quadrados[3][3]] }}>
-              {this.state.quadrados[3][3]}
-            </div>
           </div>
           <section id="ctr">
-            <IconButton onClick={() => this.atualizaTabuleiro(dirs.ESQUERDA)} color="primary" >   <ArrowBackIcon/></IconButton>
-            <IconButton onClick={() => this.atualizaTabuleiro(dirs.DIREITA)}>  <ArrowForwardIcon/></IconButton>
-            <IconButton onClick={() => this.atualizaTabuleiro(dirs.CIMA)}>  <ArrowUpwardIcon/></IconButton>
-            <IconButton onClick={() => this.atualizaTabuleiro(dirs.BAIXO)}>  <ArrowDownwardIcon/></IconButton>
+            <IconButton onClick={() => this.atualizaTabuleiro(dirs.CIMA)} color="primary" id="c">  <ArrowUpwardIcon fontSize="large" /></IconButton>
+            <IconButton onClick={() => this.atualizaTabuleiro(dirs.ESQUERDA)} color="primary" id="e" >   <ArrowBackIcon fontSize="large" /></IconButton>
+            <IconButton onClick={() => this.atualizaTabuleiro(dirs.DIREITA)} color="primary" id="d">  <ArrowForwardIcon fontSize="large" /></IconButton>
+            <IconButton onClick={() => this.atualizaTabuleiro(dirs.BAIXO)} color="primary" id="b">  <ArrowDownwardIcon fontSize="large" /></IconButton>
           </section>
         </div>
         <div>
+
           <section>
             <p>Bem vindo!</p>
 
