@@ -45,6 +45,7 @@ border: solid black;
 }
 
 #c{
-
+  margin-left: 45px;
 display: flex;
+align-self: center;
 }

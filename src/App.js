@@ -221,6 +221,9 @@ class App extends React.Component {
           <section>
             <p>Bem vindo!</p>
 
+            display: flex;
+  margin: 1%;
+  width:  
             <p>Oiii, muito bom te ver por aqui. Este é o jogo "Resta uma cor".</p>
             <p>Tem regrinha hein! </p>
             <p>
@@ -228,7 +231,7 @@ class App extends React.Component {
             <p>Cores Primárias: Vermelho, Azul e Amarelo podem se juntar para obter cores secundárias;</p>
               <p> Cores Secundárias: Roxo, Verde e Laranja também podem ser juntadas para obter cinza claro;</p>
               <p>Cinza claro: Junte 2 cinza claros para obter o cinza escuro; </p>
-              <p>size="medium" variant="outlined"Cinza escuro: Junto 2 cinza escuros para obter o preto; </p>
+              <p>Cinza escuro: Junto 2 cinza escuros para obter o preto; </p>
               <p>Preto: Junte os pretos para finalizar o jogo. </p>
             </p>
 
