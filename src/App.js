@@ -6,6 +6,7 @@ import ArrowBackIcon from '@material-ui/icons/ArrowBack';
 import ArrowForwardIcon from '@material-ui/icons/ArrowForward';
 import ArrowDownwardIcon from '@material-ui/icons/ArrowDownward';
 import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import Button from '@material-ui/core/Button';
 
 //qndo há duas cores e quer somar, cor1 com cor2
 function soma_Cores(cor1, cor2) {
@@ -215,12 +216,13 @@ class App extends React.Component {
             <IconButton onClick={() => this.atualizaTabuleiro(dirs.DIREITA)} color="primary" id="d">  <ArrowForwardIcon fontSize="large" /></IconButton>
             <IconButton onClick={() => this.atualizaTabuleiro(dirs.BAIXO)} color="primary" id="b">  <ArrowDownwardIcon fontSize="large" /></IconButton>
           </section>
+          <Button onClick={this.handleBnt} id='btn' variant="contained">Reiniciar</Button>
         </div>
         <div>
 
           <section>
             <p>Bem vindo!</p>
-  
+
             <p>Oiii, muito bom te ver por aqui. Este é o jogo "Resta uma cor".</p>
             <p>Tem regrinha hein! </p>
             <p>
@@ -236,7 +238,7 @@ class App extends React.Component {
             <p> As únicas cores iguais que se juntam são cinza claro, cinza escuro e preto. </p>
 
           </section>
-          <button onClick={this.handleBnt} id='btn'>Reiniciar </button>
+         
         </div>
       </div>//fim div app 
 
