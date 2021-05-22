@@ -60,22 +60,22 @@ class App extends React.Component {
   constructor(props) {
     super(props)
     this.cores = ["white", "blue", "red", "purple", "yellow", "green", "orange", "lightgrey", "grey", "black"]
+    var quadrados = [[3, 1, 2, 3], [4, 5, 6, 7], [8, 2, 4, 1], [2, 3, 4, 5]]
     //estado inicial
     this.state = {
-      quadrados: [[3, 1, 2, 3], [4, 5, 6, 7], [8, 2, 4, 1], [2, 3, 4, 5]]
-      // quadrados: [[0, 0, 0, 0], [7, 7, 0, 0], [0, 0, 0, 8], [0, 0, 0, 0]]
+      quadrados, tabuleiro_salvo: quadrados.slice() 
     }
   }
 
   handleBnt = (event) => {
     this.setState((state) => {
-      var quadrados = [[3, 1, 2, 3], [4, 5, 6, 7], [8, 2, 4, 1], [2, 3, 4, 5]]
-      return { quadrados }
+      return { quadrados: state.tabuleiro_salvo.slice() }
     })
 
   }
 
   handleNovoJogo = (event) => {
+    var tabuleiro_lista
     var quadrados = [[3, 1, 2, 3], [4, 5, 6, 7], [8, 2, 4, 1], [2, 3, 4, 5]]
     for (var i = 0; i < 4 ; i++){
       for (var j = 0;j < 4 ; j++){
@@ -84,7 +84,7 @@ class App extends React.Component {
     }
     this.setState((state) => {
      
-      return { quadrados }
+      return { quadrados, tabuleiro_salvo: quadrados.slice() }
     })
 
   }
